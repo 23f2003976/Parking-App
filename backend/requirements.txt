@@ -1,0 +1,9 @@
+Flask
+Werkzeug
+Jinja2
+Flask-SQLAlchemy
+redis
+celery
+python-dotenv
+itsdangerous
+PyJWT

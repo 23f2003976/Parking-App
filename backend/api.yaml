@@ -1,0 +1,80 @@
+openapi: 3.0.0
+info:
+  title: Vehicle Parking System API documentation
+  version: 1.0
+
+paths:
+
+  # -------------------- AUTH APIs --------------------
+
+  /auth/register:
+    post:
+      description: Register a new user account and return a JWT token.
+
+  /auth/login:
+    post:
+      description: Login with username and password to receive a JWT token.
+
+  # -------------------- USER APIs --------------------
+
+  /user/lots:
+    get:
+      description: Get all parking lots that have available spots.
+
+  /user/park:
+    post:
+      description: Park a vehicle in a selected parking lot.
+
+  /user/unpark:
+    post:
+      description: Unpark the active vehicle and calculate parking charges.
+
+  /user/history:
+    get:
+      description: Get the user's full parking history.
+
+  /user/search:
+    get:
+      description: Search parking lots and user parking history by keyword.
+
+  /user/summary:
+    get:
+      description: Get user analytics including visits per lot and spending trends.
+
+  /user/export/trigger:
+    post:
+      description: Trigger a CSV export job of the user's parking history.
+
+  /user/export/status/{job_id}:
+    get:
+      description: Check the status of a CSV export job.
+
+  # -------------------- ADMIN APIs --------------------
+
+  /admin/lots:
+    get:
+      description: List all parking lots with occupancy and availability details.
+    post:
+      description: Create a new parking lot along with its parking spots.
+
+  /admin/lots/{lid}:
+    put:
+      description: Update parking lot details.
+    delete:
+      description: Delete a parking lot if no vehicles are currently parked.
+
+  /admin/lots/{lid}/spots:
+    get:
+      description: View all parking spots in a specific lot with occupancy details.
+
+  /admin/users/{limit}:
+    get:
+      description: List the top active users based on number of parking sessions.
+
+  /admin/summary:
+    get:
+      description: Get admin analytics including totals and revenue per lot.
+
+  /admin/search:
+    get:
+      description: Search across users, lots, and parking spots.
